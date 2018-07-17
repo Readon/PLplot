@@ -498,6 +498,7 @@ include(ada)
 #include(ocaml)
 include(lua)
 include(d)
+include(vala)
 
 # =======================================================================
 # Option to change to static run-time support for Microsoft C and

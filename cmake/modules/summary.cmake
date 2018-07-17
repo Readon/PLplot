@@ -141,6 +141,7 @@ ENABLE_tcl:		${ENABLE_tcl}
 ENABLE_itcl:		${ENABLE_itcl}
 ENABLE_tk:		${ENABLE_tk}
 ENABLE_itk:		${ENABLE_itk}
+ENABLE_vala:		${ENABLE_vala}
 ENABLE_wxwidgets:	${ENABLE_wxwidgets}
 ")
 message("${_output_results}")
