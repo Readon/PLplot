@@ -1,44 +1,7 @@
 [CCode (cheader_filename="plplot.h")]
 namespace PlPlot {
-//      [SimpleType]
-//      [CCode (cname = "PLUINT", has_type_id = false)]
-//      public struct PLUINT : uint {
-//      }
-    
-//      [SimpleType]
-//      [CCode (cname = "PLINT", has_type_id = false)]
-//      public struct PLINT : int {
-//      }
-
-//      [SimpleType]
-//      [CCode (cname = "PLINT64", has_type_id = false)]
-//      public struct PLINT64 : int64 {
-//      }
-
-//      [CCode (cname = "PLOptionTable", destroy_function = "", has_type_id = false)]
-//      public struct PLOptionTable {        
-//          PLCHAR_VECTOR opt;
-//          int ( *handler )( PLCHAR_VECTOR, PLCHAR_VECTOR, PLPointer );
-//          PLPointer     client_data;
-//          PLPointer     var;
-//          long          mode;
-//          PLCHAR_VECTOR syntax;
-//          PLCHAR_VECTOR desc;
-//      }
-    
-//      [CCode (cname = "PLGraphicsIn", destroy_function = "", has_type_id = false)]
-//      public struct PLGraphicsIn
-//      {
-//          int     type;              // of event (CURRENTLY UNUSED)
-//          uint    state;             // key or button mask
-//          uint    keysym;            // key selected
-//          uint    button;            // mouse button selected
-//          PLINT   subwindow;         // subwindow (alias subpage, alias subplot) number
-//          char    string[PL_MAXKEY]; // translated string
-//          int     pX, pY;            // absolute device coordinates of pointer
-//          PLFLT   dX, dY;            // relative device coordinates of pointer
-//          PLFLT   wX, wY;            // world coordinates of pointer
-//      }
+	[CCode (cname = "pl_cmd")]
+	void command( int op, void * ptr );
 
     [CCode (cname = "c_pl_setcontlabelformat")]
     void setcontlabelformat( int lexp, int sigdig );

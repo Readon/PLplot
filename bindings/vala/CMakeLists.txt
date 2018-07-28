@@ -107,7 +107,7 @@ if(ENABLE_vala)
         PACKAGES ${vala_PACKAGES}
         VAPI "${CMAKE_CURRENT_BINARY_DIR}/${vala_PKG_NAME}.vapi"
         GIR "${vala_GIR_NAME}.gir"
-        HEADER "${CMAKE_CURRENT_BINARY_DIR}/${vala_PKG_NAME}.h"
+        HEADER "${CMAKE_CURRENT_BINARY_DIR}/${vala_PKG_NAME}vala.h"
         ${vala_LIB_SRCS})
 
     # Compile the library.

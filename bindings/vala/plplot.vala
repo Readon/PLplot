@@ -26,8 +26,52 @@ namespace PlPlot{
         ViewPortDefined,
         WorldCoordDefined
     }
+	
+	public enum Command{
+		SetRGB = 1,			// obsolete
+		AllocNCol,  		// obsolete
+		SetLPB,		  		// obsolete
+		Expose,				// handle window expose
+		Resize,				// handle window resize
+		Redraw,				// handle window redraw
+		Text,				// switch to text screen
+		Graph,				// switch to graphics screen
+		Fill,  				// fill polygon
+		DI,					// handle DI command
+		Flush,				// flush output
+		EH,					// handle Window events
+		GetC,				// get cursor position
+		SWin,				// set window parameters
+		DoubleBuffering,	// configure double buffering
+		XORMod,				// set xor mode
+		SetCompression,		// AFR: set compression
+		Clear,				// RL: clear graphics region
+		Dash,               // RL: draw dashed line
+		HasText,			// driver draws text
+		Image,				// handle image
+		ImageOPS,			// plimage related operations
+		PL2DevCol,			// convert PLColor to device color
+		Dev2PLCol,			// convert device color to PLColor
+		SetBGFG,            // set BG, FG colors
+		DevInit,			// alternate device initialization
+		GetBackend,			// get used backend of (wxWidgets) driver - no longer used
+		BeginText,			// get ready to draw a line of text
+		TextChar,           // render a character of text
+		ControlChar,        // handle a text control character (super/subscript, etc.)
+		EndText,            // finish a drawing a line of text
+		StartRasterize,     // start rasterized rendering
+		EndRasterize,       // end rasterized rendering
+		ARC,                // render an arc
+		Gradient,  			// render a gradient
+		ModeSet,			// set drawing mode
+		ModeGet,            // get drawing mode
+		FixAspect,          // set or unset fixing the aspect ratio of the plot
+		ImportBuffer,       // set the contents of the buffer to a specified byte string
+		AppendBuffer,       // append the given byte string to the buffer
+		FlushRemainingBuffer // flush the remaining buffer e.g. after new data was appended
+	}
 
-    class Stream : Object{
+    public class Stream : Object{
         private int _stream = 0;
         private class int active_streams = 0;
 
@@ -58,6 +102,19 @@ namespace PlPlot{
             if ( active_streams != 0 )
                 PlPlot.finish_plot();
         }
+		
+		public void init()
+		{
+            PlPlot.set_current_stream( _stream );			
+            PlPlot.init();
+			PlPlot.get_current_stream(out _stream);
+		}
+		
+		public void command(int op, void * ptr)
+		{
+            PlPlot.set_current_stream( _stream );
+            PlPlot.command( op, ptr );
+		}
 
         public void advance_page( int page )
         {
